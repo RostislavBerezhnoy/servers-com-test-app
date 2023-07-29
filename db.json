@@ -1,0 +1,104 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "date": "2023-02-07T19:10:05.000Z",
+      "author": {
+        "id": "1",
+        "name": "John Doe",
+        "avatar": "https://randomuser.me/api/portraits/men/99.jpg"
+      }
+    },
+    {
+      "id": 2,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "date": "2023-02-07T19:10:05.000Z",
+      "author": {
+        "id": "2",
+        "name": "Van Lamoen",
+        "avatar": "https://randomuser.me/api/portraits/men/9.jpg"
+      }
+    },
+    {
+      "id": 3,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "date": "2023-02-07T19:10:05.000Z",
+      "author": {
+        "id": "3",
+        "name": "Rose",
+        "avatar": "https://randomuser.me/api/portraits/women/1.jpg"
+      }
+    },
+    {
+      "id": 4,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "date": "2023-02-07T19:10:05.000Z",
+      "author": {
+        "id": "1",
+        "name": "John Doe",
+        "avatar": "https://randomuser.me/api/portraits/men/99.jpg"
+      }
+    },
+    {
+      "id": 5,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "date": "2023-02-07T19:10:05.000Z",
+      "author": {
+        "id": "4",
+        "name": "Lima",
+        "avatar": "https://randomuser.me/api/portraits/women/79.jpg"
+      }
+    },
+    {
+      "id": 6,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "date": "2023-02-07T19:10:05.000Z",
+      "author": {
+        "id": "5",
+        "name": "Hoseth",
+        "avatar": "https://randomuser.me/api/portraits/men/68.jpg"
+      }
+    },
+    {
+      "id": 7,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "date": "2023-02-07T19:10:05.000Z",
+      "author": {
+        "id": "4",
+        "name": "Lima",
+        "avatar": "https://randomuser.me/api/portraits/women/79.jpg"
+      }
+    },
+    {
+      "id": 8,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "date": "2023-02-07T19:10:05.000Z",
+      "author": {
+        "id": "3",
+        "name": "Rose",
+        "avatar": "https://randomuser.me/api/portraits/women/1.jpg"
+      }
+    },
+    {
+      "id": 9,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "date": "2023-02-07T19:10:05.000Z",
+      "author": {
+        "id": "2",
+        "name": "Van Lamoen",
+        "avatar": "https://randomuser.me/api/portraits/men/9.jpg"
+      }
+    },
+    {
+      "id": 10,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "date": "2023-02-07T19:10:05.000Z",
+      "author": {
+        "id": "5",
+        "name": "Hoseth",
+        "avatar": "https://randomuser.me/api/portraits/men/68.jpg"
+      }
+    }
+  ]
+}
