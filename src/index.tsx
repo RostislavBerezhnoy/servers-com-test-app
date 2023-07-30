@@ -14,8 +14,8 @@ dayjs.extend(localizedFormat)
 const root = ReactDOM.createRoot(document.querySelector('#root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Toaster position='bottom-right' />
+    <Provider store={store()}>
+      <Toaster position='top-right' />
       <App />
     </Provider>
   </React.StrictMode>,

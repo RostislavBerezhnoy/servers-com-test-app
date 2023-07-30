@@ -1,13 +1,15 @@
 import { FC } from 'react'
 import { Select, Input, DatePicker } from 'antd'
 import { Box, BorderedBox } from 'components/Box'
+import dayjs from 'dayjs'
 import { Author } from 'types/api'
 
 export type PostFilterProps = {
   search: string
+  date?: string
   author?: string
   authors: Author[]
-  authorsLoading?: boolean
+  authorsLoading: boolean
   setDate: (text: string) => void
   setSearch: (text: string) => void
   setAuthor: (text: string) => void
@@ -15,6 +17,7 @@ export type PostFilterProps = {
 
 export const PostFilter: FC<PostFilterProps> = ({
   search,
+  date,
   setSearch,
   setDate,
   author,
@@ -22,7 +25,7 @@ export const PostFilter: FC<PostFilterProps> = ({
   authors,
   authorsLoading,
 }) => (
-  <BorderedBox marginBottom={30}>
+  <BorderedBox>
     <Box marginBottom={10}>
       <Input
         allowClear
@@ -45,6 +48,7 @@ export const PostFilter: FC<PostFilterProps> = ({
       />
       <DatePicker
         style={{ width: '49%' }}
+        value={date ? dayjs(date) : undefined}
         onChange={(_, dateString) => setDate(dateString)}
         placeholder='select date...'
       />

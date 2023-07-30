@@ -14,3 +14,5 @@ export type Post = {
   authorName: string
   authorAvatar: string
 }
+
+export type CreatePost = Omit<Post, 'id'>

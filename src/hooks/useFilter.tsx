@@ -1,4 +1,6 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useAppSelector, useAppDispatch } from 'store'
+import { clearFilter } from 'store/slices'
 import debounce from 'lodash.debounce'
 
 type Query = {
@@ -23,6 +25,9 @@ export function useFilter(
     defaultPage = DEFAULT_FILTERS.defaultPage,
   } = DEFAULT_FILTERS,
 ) {
+  const { clear: clearFilters } = useAppSelector(store => store?.filter)
+  const dispatch = useAppDispatch()
+
   const [page, setPage] = useState<Query['page']>(defaultPage)
   const [rowsPerPage, setRowsPerPage] = useState<Query['rowsPerPage']>(defaultPerPage)
   const [search, setSearch] = useState<Query['search']>('')
@@ -53,6 +58,21 @@ export function useFilter(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setPage, rowsPerPage, search, author, date])
 
+  const resetFilters = useCallback(() => {
+    setPage(DEFAULT_FILTERS.defaultPage)
+    setRowsPerPage(DEFAULT_FILTERS.defaultPerPage)
+    setSearch('')
+    setDate(undefined)
+    setAuthor(undefined)
+  }, [])
+
+  useEffect(() => {
+    if (clearFilters) {
+      resetFilters()
+      dispatch(clearFilter(false))
+    }
+  }, [clearFilters, resetFilters, dispatch])
+
   return {
     filters,
     setPage,
@@ -60,5 +80,6 @@ export function useFilter(
     setSearch,
     setDate,
     setAuthor,
+    resetFilters,
   }
 }

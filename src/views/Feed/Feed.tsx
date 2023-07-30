@@ -5,6 +5,7 @@ import { useFilter } from 'hooks/useFilter'
 import { WrappedBox, Box } from 'components/Box'
 import { Loader } from 'components/Loader'
 import { PostList, PostFilter } from 'components/Post'
+import { CreatePost } from 'widgets/CreatePost'
 
 export const Feed = () => {
   const { useLazyGetPostsQuery } = PostsQueries
@@ -16,15 +17,19 @@ export const Feed = () => {
   const { data: authors = [], isLoading: isAuthorsLoading } = useGetAuthorsQuery()
 
   const {
-    filters: { page, search, author },
+    filters: { page, search, author, date },
     setPage,
     setSearch,
     setAuthor,
     setDate,
   } = useFilter(getPosts)
 
+  const loadMorePosts = () => {
+    setPage(page + 1)
+  }
+
   useEffect(() => {
-    if (isPostsError) toast.error('Не удалось загрузить список постов')
+    if (isPostsError) toast.error('Posts has not been loaded')
   }, [isPostsError])
 
   if (isPostsLoading)
@@ -36,17 +41,23 @@ export const Feed = () => {
 
   return (
     <Box alignItems='center'>
-      <Box width={600}>
-        <PostFilter
-          search={search}
-          setSearch={setSearch}
-          authors={authors}
-          authorsLoading={isAuthorsLoading}
-          setDate={setDate}
-          author={author}
-          setAuthor={setAuthor}
-        />
-        <PostList posts={posts} loadMore={() => setPage(page + 1)} />
+      <Box maxWidth={600} width='100%'>
+        <Box marginBottom={20}>
+          <CreatePost />
+        </Box>
+        <Box marginBottom={30}>
+          <PostFilter
+            search={search}
+            setSearch={setSearch}
+            authors={authors}
+            authorsLoading={isAuthorsLoading}
+            date={date}
+            setDate={setDate}
+            author={author}
+            setAuthor={setAuthor}
+          />
+        </Box>
+        <PostList posts={posts} loadMore={loadMorePosts} />
       </Box>
     </Box>
   )

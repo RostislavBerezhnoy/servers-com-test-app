@@ -1,7 +1,9 @@
 import { createApi } from '@reduxjs/toolkit/dist/query/react'
 import { preparedBaseQueryFn } from 'utils/preparedBaseQuery'
-import { Post } from 'types/api'
+import { Post, CreatePost } from 'types/api'
 import { Filters, DEFAULT_FILTERS } from 'hooks/useFilter'
+
+export const REFETCH_DELAY = 200
 
 export const POSTS_TYPE = 'POSTS_TYPE'
 export const POSTS_TYPE_GET_ALL_POSTS = 'POSTS_TYPE_GET_ALL_POSTS'
@@ -24,6 +26,7 @@ export const PostsQueries = createApi({
         },
       }),
       serializeQueryArgs: ({ endpointName }) => endpointName,
+      //eslint-disable-next-line sonarjs/cognitive-complexity
       merge: (currentCache, newItems, otherArgs) => {
         const {
           arg: { search, page = DEFAULT_FILTERS.defaultPage, author, date },
@@ -32,9 +35,19 @@ export const PostsQueries = createApi({
         const fullResponse = page === DEFAULT_FILTERS.defaultPage && newItems.length !== 0
         const emptyResponse = page === DEFAULT_FILTERS.defaultPage && newItems.length === 0
 
-        if ((search && emptyResponse) || (author && emptyResponse) || (date && emptyResponse)) {
+        if (
+          (search && emptyResponse) ||
+          (author && emptyResponse) ||
+          (date && emptyResponse) ||
+          emptyResponse
+        ) {
           currentCache.splice(0, currentCache.length)
-        } else if ((search && fullResponse) || (author && fullResponse) || (date && fullResponse)) {
+        } else if (
+          (search && fullResponse) ||
+          (author && fullResponse) ||
+          (date && fullResponse) ||
+          fullResponse
+        ) {
           currentCache.splice(0, currentCache.length)
           currentCache.push(...newItems)
         } else {
@@ -45,6 +58,19 @@ export const PostsQueries = createApi({
         return currentArg !== previousArg
       },
       providesTags: [POSTS_TYPE_GET_ALL_POSTS],
+    }),
+    createPost: build.mutation<Post, CreatePost>({
+      query: body => ({
+        url: '/posts',
+        method: 'POST',
+        body,
+      }),
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        await queryFulfilled
+        setTimeout(() => {
+          dispatch(PostsQueries.util.invalidateTags([POSTS_TYPE_GET_ALL_POSTS]))
+        }, REFETCH_DELAY)
+      },
     }),
   }),
 })
