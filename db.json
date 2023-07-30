@@ -2,103 +2,120 @@
   "posts": [
     {
       "id": 1,
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "date": "2023-02-07T19:10:05.000Z",
-      "author": {
-        "id": "1",
-        "name": "John Doe",
-        "avatar": "https://randomuser.me/api/portraits/men/99.jpg"
-      }
+      "text": "С другой стороны новая модель организационной деятельности требует от нас системного анализа системы обучения кадров, соответствующей насущным потребностям. Задача организации, в особенности же новая модель организационной деятельности требует от нас системного анализа направлений прогрессивного развития? Дорогие друзья, сложившаяся структура организации представляет собой интересный эксперимент проверки позиций, занимаемых участниками в отношении поставленных задач.",
+      "date": "2023-08-01T19:10:05.000Z",
+      "authorId": "1",
+      "authorName": "John Doe",
+      "authorAvatar": "https://randomuser.me/api/portraits/men/99.jpg"
     },
     {
       "id": 2,
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "date": "2023-02-07T19:10:05.000Z",
-      "author": {
-        "id": "2",
-        "name": "Van Lamoen",
-        "avatar": "https://randomuser.me/api/portraits/men/9.jpg"
-      }
+      "text": "Равным образом социально-экономическое развитие требует определения и уточнения соответствующих условий активизации.",
+      "date": "2023-08-02T19:10:05.000Z",
+      "authorId": "2",
+      "authorName": "Van Lamoen",
+      "authorAvatar": "https://randomuser.me/api/portraits/men/9.jpg"
     },
     {
       "id": 3,
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "date": "2023-02-07T19:10:05.000Z",
-      "author": {
-        "id": "3",
-        "name": "Rose",
-        "avatar": "https://randomuser.me/api/portraits/women/1.jpg"
-      }
+      "text": "Задача организации, в особенности же рамки и место обучения кадров напрямую зависит от дальнейших направлений развитая системы массового участия. Не следует, однако, забывать о том, что повышение уровня гражданского сознания способствует повышению актуальности новых предложений. Таким образом, постоянное информационно-техническое обеспечение нашей деятельности в значительной степени обуславливает создание новых предложений.",
+      "date": "2023-08-03T19:10:05.000Z",
+      "authorId": "3",
+      "authorName": "Rose",
+      "authorAvatar": "https://randomuser.me/api/portraits/women/1.jpg"
     },
     {
       "id": 4,
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "date": "2023-02-07T19:10:05.000Z",
-      "author": {
-        "id": "1",
-        "name": "John Doe",
-        "avatar": "https://randomuser.me/api/portraits/men/99.jpg"
-      }
+      "text": "Практический опыт показывает, что постоянный количественный рост и сфера нашей активности требует от нас анализа...",
+      "date": "2023-08-04T19:10:05.000Z",
+      "authorId": "1",
+      "authorName": "John Doe",
+      "authorAvatar": "https://randomuser.me/api/portraits/men/99.jpg"
     },
     {
       "id": 5,
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "date": "2023-02-07T19:10:05.000Z",
-      "author": {
-        "id": "4",
-        "name": "Lima",
-        "avatar": "https://randomuser.me/api/portraits/women/79.jpg"
-      }
+      "text": "Соображения высшего порядка, а также курс на социально-ориентированный национальный проект напрямую зависит от дальнейших направлений развитая системы массового участия! Соображения высшего порядка, а также реализация намеченного плана развития позволяет оценить значение системы масштабного изменения ряда параметров. Не следует, однако, забывать о том, что постоянное информационно-техническое обеспечение нашей деятельности требует от нас системного анализа системы масштабного изменения ряда параметров.",
+      "date": "2023-08-05T19:10:05.000Z",
+      "authorId": "4",
+      "authorName": "Lima",
+      "authorAvatar": "https://randomuser.me/api/portraits/women/79.jpg"
     },
     {
       "id": 6,
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "date": "2023-02-07T19:10:05.000Z",
-      "author": {
-        "id": "5",
-        "name": "Hoseth",
-        "avatar": "https://randomuser.me/api/portraits/men/68.jpg"
-      }
+      "text": "Дорогие друзья, консультация с профессионалами из IT создаёт предпосылки качественно новых шагов для всесторонне сбалансированных нововведений.",
+      "date": "2023-08-06T19:10:05.000Z",
+      "authorId": "5",
+      "authorName": "Hoseth",
+      "authorAvatar": "https://randomuser.me/api/portraits/men/68.jpg"
     },
     {
       "id": 7,
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "date": "2023-02-07T19:10:05.000Z",
-      "author": {
-        "id": "4",
-        "name": "Lima",
-        "avatar": "https://randomuser.me/api/portraits/women/79.jpg"
-      }
+      "text": "Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции способствует подготовке и реализации новых предложений. Таким образом, социально-экономическое развитие требует от нас системного анализа экономической целесообразности принимаемых решений! Разнообразный и богатый опыт рамки и место обучения кадров влечет за собой процесс внедрения и модернизации дальнейших направлений развитая системы массового...",
+      "date": "2023-08-07T19:10:05.000Z",
+      "authorId": "4",
+      "authorName": "Lima",
+      "authorAvatar": "https://randomuser.me/api/portraits/women/79.jpg"
     },
     {
       "id": 8,
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "date": "2023-02-07T19:10:05.000Z",
-      "author": {
-        "id": "3",
-        "name": "Rose",
-        "avatar": "https://randomuser.me/api/portraits/women/1.jpg"
-      }
+      "text": "Таким образом, новая модель организационной деятельности в значительной степени обуславливает создание дальнейших направлений развития проекта. С другой стороны новая модель организационной деятельности позволяет выполнить важнейшие задания по разработке соответствующих условий активизации? Равным образом повышение уровня гражданского сознания представляет собой интересный эксперимент проверки позиций, занимаемых участниками в отношении поставленных задач.",
+      "date": "2023-08-08T19:10:05.000Z",
+      "authorId": "3",
+      "authorName": "Rose",
+      "authorAvatar": "https://randomuser.me/api/portraits/women/1.jpg"
     },
     {
       "id": 9,
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "date": "2023-02-07T19:10:05.000Z",
-      "author": {
-        "id": "2",
-        "name": "Van Lamoen",
-        "avatar": "https://randomuser.me/api/portraits/men/9.jpg"
-      }
+      "text": "Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности способствует повышению актуальности дальнейших направлений развития проекта! Повседневная практика показывает, что новая модель организационной деятельности способствует повышению актуальности системы обучения кадров, соответствующей насущным потребностям. С другой стороны новая модель организационной деятельности способствует повышению актуальности системы масштабного изменения ряда параметров.",
+      "date": "2023-08-09T19:10:05.000Z",
+      "authorId": "2",
+      "authorName": "Van Lamoen",
+      "authorAvatar": "https://randomuser.me/api/portraits/men/9.jpg"
     },
     {
       "id": 10,
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "date": "2023-02-07T19:10:05.000Z",
-      "author": {
-        "id": "5",
-        "name": "Hoseth",
-        "avatar": "https://randomuser.me/api/portraits/men/68.jpg"
-      }
+      "text": "Не следует, однако, забывать о том, что консультация с профессионалами из IT напрямую зависит от новых предложений. Соображения высшего порядка, а также выбранный нами инновационный путь требует от нас системного анализа экономической целесообразности принимаемых решений. Повседневная практика показывает, что рамки и место обучения кадров способствует повышению актуальности системы обучения кадров, соответствующей насущным потребностям? Дорогие друзья, рамки и место обучения кадров напрямую зависит от форм воздействия.",
+      "date": "2023-08-10T19:10:05.000Z",
+      "authorId": "5",
+      "authorName": "Hoseth",
+      "authorAvatar": "https://randomuser.me/api/portraits/men/68.jpg"
+    }
+  ],
+  "authors": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "avatar": "https://randomuser.me/api/portraits/men/99.jpg",
+      "age": "45",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": "2",
+      "name": "Van Lamoen",
+      "avatar": "https://randomuser.me/api/portraits/men/9.jpg",
+      "age": "35",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": "3",
+      "name": "Rose",
+      "avatar": "https://randomuser.me/api/portraits/women/1.jpg",
+      "age": "32",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": "4",
+      "name": "Lima",
+      "avatar": "https://randomuser.me/api/portraits/women/79.jpg",
+      "age": "27",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": "5",
+      "name": "Hoseth",
+      "avatar": "https://randomuser.me/api/portraits/men/68.jpg",
+      "age": "29",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
   ]
 }

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { PostsQueries } from 'api'
+import { PostsQueries, AuthorsQueries } from 'api'
 import { toast } from 'react-hot-toast'
 import { useFilter } from 'hooks/useFilter'
 import { WrappedBox, Box } from 'components/Box'
@@ -8,14 +8,19 @@ import { PostList, PostFilter } from 'components/Post'
 
 export const Feed = () => {
   const { useLazyGetPostsQuery } = PostsQueries
+  const { useGetAuthorsQuery } = AuthorsQueries
 
   const [getPosts, { data: posts = [], isLoading: isPostsLoading, isError: isPostsError }] =
     useLazyGetPostsQuery()
 
+  const { data: authors = [], isLoading: isAuthorsLoading } = useGetAuthorsQuery()
+
   const {
-    filters: { page, search },
+    filters: { page, search, author },
     setPage,
     setSearch,
+    setAuthor,
+    setDate,
   } = useFilter(getPosts)
 
   useEffect(() => {
@@ -31,8 +36,16 @@ export const Feed = () => {
 
   return (
     <Box alignItems='center'>
-      <Box width={550}>
-        <PostFilter search={search} setSearch={setSearch} />
+      <Box width={600}>
+        <PostFilter
+          search={search}
+          setSearch={setSearch}
+          authors={authors}
+          authorsLoading={isAuthorsLoading}
+          setDate={setDate}
+          author={author}
+          setAuthor={setAuthor}
+        />
         <PostList posts={posts} loadMore={() => setPage(page + 1)} />
       </Box>
     </Box>

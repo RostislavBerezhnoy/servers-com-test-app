@@ -5,8 +5,8 @@ type Query = {
   page: number
   rowsPerPage: number
   search: string
-  filterName: string
-  filterValue: string
+  date: string
+  author: string
 }
 
 export type Filters = Record<string, any> & Partial<Query>
@@ -26,39 +26,39 @@ export function useFilter(
   const [page, setPage] = useState<Query['page']>(defaultPage)
   const [rowsPerPage, setRowsPerPage] = useState<Query['rowsPerPage']>(defaultPerPage)
   const [search, setSearch] = useState<Query['search']>('')
-  const [filterName, setFilterName] = useState<Query['filterName']>('')
-  const [filterValue, setFilterValue] = useState<Query['filterValue']>('')
+  const [date, setDate] = useState<Query['date']>()
+  const [author, setAuthor] = useState<Query['author']>()
+
+  const getSearchDebQuery = useMemo(() => debounce(fils => getQuery(fils), 500), [getQuery])
+  const getDebQuery = useMemo(() => debounce(fils => getQuery(fils), 100), [getQuery])
 
   const filters = useMemo(
     () => ({
       page,
       rowsPerPage,
       search,
-      filterName,
-      filterValue,
+      date,
+      author,
     }),
-    [page, rowsPerPage, search, filterName, filterValue],
+    [page, rowsPerPage, search, date, author],
   )
 
-  const getDebQuery = useMemo(() => debounce(fils => getQuery(fils), 500), [getQuery])
-
   useEffect(() => {
-    if (filters.search) getDebQuery(filters)
-    else getQuery(filters)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters])
+    if (filters.search) getSearchDebQuery(filters)
+    else getDebQuery(filters)
+  }, [filters, getSearchDebQuery, getDebQuery])
 
   useEffect(() => {
     if (page !== DEFAULT_FILTERS.defaultPage) setPage(DEFAULT_FILTERS.defaultPage)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setPage, rowsPerPage, search, filterValue])
+  }, [setPage, rowsPerPage, search, author, date])
 
   return {
     filters,
     setPage,
     setRowsPerPage,
     setSearch,
-    setFilterName,
-    setFilterValue,
+    setDate,
+    setAuthor,
   }
 }

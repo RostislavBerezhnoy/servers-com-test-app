@@ -1,7 +1,7 @@
 import { createApi } from '@reduxjs/toolkit/dist/query/react'
 import { preparedBaseQueryFn } from 'utils/preparedBaseQuery'
 import { Post } from 'types/api'
-import { Filters } from 'hooks/useFilter'
+import { Filters, DEFAULT_FILTERS } from 'hooks/useFilter'
 
 export const POSTS_TYPE = 'POSTS_TYPE'
 export const POSTS_TYPE_GET_ALL_POSTS = 'POSTS_TYPE_GET_ALL_POSTS'
@@ -12,17 +12,29 @@ export const PostsQueries = createApi({
   tagTypes: [POSTS_TYPE_GET_ALL_POSTS],
   endpoints: build => ({
     getPosts: build.query<Post[], Filters>({
-      query: ({ page, rowsPerPage, search }) => ({
-        url: `/posts?_limit=${rowsPerPage}&_page=${page}&text_like=${search}`,
+      query: ({ page, rowsPerPage, search, author, date }) => ({
+        url: '/posts',
         method: 'GET',
+        params: {
+          _limit: rowsPerPage,
+          _page: page,
+          authorId: author,
+          date_like: date,
+          text_like: search,
+        },
       }),
       serializeQueryArgs: ({ endpointName }) => endpointName,
       merge: (currentCache, newItems, otherArgs) => {
         const {
-          arg: { search },
+          arg: { search, page = DEFAULT_FILTERS.defaultPage, author, date },
         } = otherArgs
 
-        if (search) {
+        const fullResponse = page === DEFAULT_FILTERS.defaultPage && newItems.length !== 0
+        const emptyResponse = page === DEFAULT_FILTERS.defaultPage && newItems.length === 0
+
+        if ((search && emptyResponse) || (author && emptyResponse) || (date && emptyResponse)) {
+          currentCache.splice(0, currentCache.length)
+        } else if ((search && fullResponse) || (author && fullResponse) || (date && fullResponse)) {
           currentCache.splice(0, currentCache.length)
           currentCache.push(...newItems)
         } else {

@@ -10,5 +10,7 @@ export type Post = {
   id: number
   text: string
   date: string
-  author: Pick<Author, 'id' | 'name' | 'avatar'>
+  authorId: number
+  authorName: string
+  authorAvatar: string
 }

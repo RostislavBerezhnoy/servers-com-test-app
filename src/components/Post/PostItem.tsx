@@ -7,18 +7,18 @@ import { Post } from 'types/api'
 
 const { Title, Text } = Typography
 
-export const PostItem: FC<Post> = ({ id, text, date, author }) => (
+export const PostItem: FC<Post> = ({ id, text, date, authorId, authorAvatar, authorName }) => (
   <List.Item key={id}>
     <List.Item.Meta
       avatar={
-        <Link to={`/author/${id}`}>
-          <Avatar size='large' src={author.avatar} />
+        <Link to={`/author/${authorId}`}>
+          <Avatar size={45} src={authorAvatar} />
         </Link>
       }
       title={
         <Box flexDirection='row' justifyContent='space-between'>
-          <Link to={`/author/${id}`}>
-            <Title level={5}>{author.name}</Title>
+          <Link to={`/author/${authorId}`}>
+            <Title level={5}>{authorName}</Title>
           </Link>
           <Text type='secondary'>{dateTimeFormatter(date)}</Text>
         </Box>
