@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { List } from 'antd'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { BorderedBox } from 'components/Box'
 import { PostItem } from './PostItem'
 import { Post } from 'types/api'
 
@@ -17,15 +18,8 @@ export const PostList: FC<PostListProps> = ({ posts, loadMore }) => (
     loader={null}
     scrollableTarget='scrollableDiv'
   >
-    <List
-      style={{
-        borderRadius: 15,
-        border: '1px solid #dce1e6',
-        padding: 20,
-        backgroundColor: '#fff',
-      }}
-      dataSource={posts}
-      renderItem={post => <PostItem {...post} />}
-    />
+    <BorderedBox>
+      <List dataSource={posts} renderItem={post => <PostItem {...post} />} />
+    </BorderedBox>
   </InfiniteScroll>
 )

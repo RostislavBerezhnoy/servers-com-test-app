@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Select, Input, DatePicker } from 'antd'
-import { Box } from 'components/Box'
+import { Box, BorderedBox } from 'components/Box'
 import { Author } from 'types/api'
 
 export type PostFilterProps = {
@@ -22,13 +22,7 @@ export const PostFilter: FC<PostFilterProps> = ({
   authors,
   authorsLoading,
 }) => (
-  <Box
-    marginBottom={30}
-    padding={20}
-    borderRadius={15}
-    border='1px solid #dce1e6'
-    backgroundColor='#fff'
-  >
+  <BorderedBox marginBottom={30}>
     <Box marginBottom={10}>
       <Input
         allowClear
@@ -47,7 +41,7 @@ export const PostFilter: FC<PostFilterProps> = ({
         fieldNames={{ label: 'name', value: 'id' }}
         value={author}
         onChange={setAuthor}
-        placeholder='select authors...'
+        placeholder='select author...'
       />
       <DatePicker
         style={{ width: '49%' }}
@@ -55,5 +49,5 @@ export const PostFilter: FC<PostFilterProps> = ({
         placeholder='select date...'
       />
     </Box>
-  </Box>
+  </BorderedBox>
 )
