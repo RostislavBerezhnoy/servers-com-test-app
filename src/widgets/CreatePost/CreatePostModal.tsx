@@ -73,7 +73,7 @@ export const CreatePostModal: FC<CreatePostModalProps> = ({ isOpen, closeModal }
       <Box margin='20px 0 30px 0'>
         <TextArea
           rows={5}
-          placeholder='Enter the message...'
+          placeholder='Enter your message...'
           maxLength={200}
           showCount
           style={{ resize: 'none' }}

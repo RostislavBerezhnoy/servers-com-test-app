@@ -12,7 +12,7 @@ export const CreatePost = () => {
   return (
     <>
       <Button type='primary' ghost onClick={openCreatePostModal}>
-        Create new post
+        Create a new post
       </Button>
       {isCreatePostModalOpen && (
         <CreatePostModal isOpen={isCreatePostModalOpen} closeModal={closeCreatePostModal} />

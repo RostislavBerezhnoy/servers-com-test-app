@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Select, Input, DatePicker } from 'antd'
+import { Select, Input, DatePicker, Button } from 'antd'
 import { Box, BorderedBox } from 'components/Box'
 import dayjs from 'dayjs'
 import { Author } from 'types/api'
@@ -13,6 +13,7 @@ export type PostFilterProps = {
   setDate: (text: string) => void
   setSearch: (text: string) => void
   setAuthor: (text: string) => void
+  resetFilters: () => void
 }
 
 export const PostFilter: FC<PostFilterProps> = ({
@@ -24,6 +25,7 @@ export const PostFilter: FC<PostFilterProps> = ({
   setAuthor,
   authors,
   authorsLoading,
+  resetFilters,
 }) => (
   <BorderedBox>
     <Box marginBottom={10}>
@@ -35,7 +37,7 @@ export const PostFilter: FC<PostFilterProps> = ({
         onChange={e => setSearch(e.target.value)}
       />
     </Box>
-    <Box flexDirection='row' justifyContent='space-between' width='100%'>
+    <Box flexDirection='row' justifyContent='space-between' width='100%' marginBottom={20}>
       <Select
         allowClear
         style={{ width: '49%' }}
@@ -44,7 +46,7 @@ export const PostFilter: FC<PostFilterProps> = ({
         fieldNames={{ label: 'name', value: 'id' }}
         value={author}
         onChange={setAuthor}
-        placeholder='select author...'
+        placeholder='select contributor...'
       />
       <DatePicker
         style={{ width: '49%' }}
@@ -53,5 +55,8 @@ export const PostFilter: FC<PostFilterProps> = ({
         placeholder='select date...'
       />
     </Box>
+    <Button type='primary' ghost onClick={resetFilters}>
+      Reset all filters
+    </Button>
   </BorderedBox>
 )

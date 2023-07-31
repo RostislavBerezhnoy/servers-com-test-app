@@ -2,6 +2,7 @@ import { createApi } from '@reduxjs/toolkit/dist/query/react'
 import { preparedBaseQueryFn } from 'utils/preparedBaseQuery'
 import { Filters, DEFAULT_FILTERS } from 'hooks/useFilter'
 import { resetFilters } from 'store/slices'
+import { getArgsArrayFromArgsObject } from 'utils/getArgsArrayFromArgsObject'
 import { Post, CreatePost } from 'types/api'
 
 export const POSTS_TYPE = 'POSTS_TYPE'
@@ -17,6 +18,8 @@ export const PostsQueries = createApi({
         url: '/posts',
         method: 'GET',
         params: {
+          _sort: 'date',
+          _order: 'desc',
           _limit: rowsPerPage,
           _page: page,
           authorId: author,
@@ -30,14 +33,14 @@ export const PostsQueries = createApi({
           arg: { page = DEFAULT_FILTERS.defaultPage, ...rest },
         } = otherArgs
 
-        const argsArray = Object.keys(rest).map(el => rest[el])
+        const argsArray = getArgsArrayFromArgsObject(rest)
 
         const fullResponse = page === DEFAULT_FILTERS.defaultPage && newItems.length !== 0
         const emptyResponse = page === DEFAULT_FILTERS.defaultPage && newItems.length === 0
 
-        if ((!argsArray.includes(false) && emptyResponse) || emptyResponse) {
+        if ((argsArray.some(Boolean) && emptyResponse) || emptyResponse) {
           currentCache.splice(0, currentCache.length)
-        } else if ((!argsArray.includes(false) && fullResponse) || fullResponse) {
+        } else if ((argsArray.some(Boolean) && fullResponse) || fullResponse) {
           currentCache.splice(0, currentCache.length)
           currentCache.push(...newItems)
         } else {
@@ -55,9 +58,26 @@ export const PostsQueries = createApi({
         method: 'POST',
         body,
       }),
-      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+      async onQueryStarted(_, { dispatch, getState, queryFulfilled }) {
         await queryFulfilled
-        dispatch(resetFilters(true))
+
+        const {
+          page = DEFAULT_FILTERS.defaultPage,
+          rowsPerPage = DEFAULT_FILTERS.defaultPerPage,
+          ...rest
+        } = getState().POSTS_TYPE.queries?.getPosts?.originalArgs as Filters
+
+        const argsArray = getArgsArrayFromArgsObject(rest)
+
+        if (
+          argsArray.some(Boolean) ||
+          page > DEFAULT_FILTERS.defaultPage ||
+          rowsPerPage > DEFAULT_FILTERS.defaultPerPage
+        ) {
+          dispatch(resetFilters(true))
+        } else {
+          dispatch(PostsQueries.util.invalidateTags([POSTS_TYPE_GET_ALL_POSTS]))
+        }
       },
     }),
   }),

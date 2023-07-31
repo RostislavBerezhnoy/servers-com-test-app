@@ -15,7 +15,7 @@ export type Filters = Record<string, any> & Partial<Query>
 
 export const DEFAULT_FILTERS = {
   defaultPage: 1,
-  defaultPerPage: 5,
+  defaultPerPage: 10,
 }
 
 export function useFilter(
@@ -35,7 +35,7 @@ export function useFilter(
   const [author, setAuthor] = useState<Query['author']>()
 
   const getSearchDebQuery = useMemo(() => debounce(fils => getQuery(fils), 500), [getQuery])
-  const getDebQuery = useMemo(() => debounce(fils => getQuery(fils), 100), [getQuery])
+  const getDebQuery = useMemo(() => debounce(fils => getQuery(fils), 200), [getQuery])
 
   const filters = useMemo(
     () => ({
@@ -49,8 +49,11 @@ export function useFilter(
   )
 
   useEffect(() => {
-    if (filters.search) getSearchDebQuery(filters)
-    else getDebQuery(filters)
+    if (filters.search.length) {
+      getDebQuery(filters)
+    } else {
+      getSearchDebQuery(filters)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters])
 

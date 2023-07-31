@@ -22,6 +22,7 @@ export const Feed = () => {
     setSearch,
     setAuthor,
     setDate,
+    resetFilters,
   } = useFilter(getPosts)
 
   const loadMorePosts = () => {
@@ -50,6 +51,7 @@ export const Feed = () => {
             setDate={setDate}
             author={author}
             setAuthor={setAuthor}
+            resetFilters={resetFilters}
           />
         </Box>
         <PostList posts={posts} loadMore={loadMorePosts} />
