@@ -1,19 +1,22 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { AuthorsQueries } from 'api'
+import { AuthorsQueries, PostsQueries } from 'api'
 import { toast } from 'react-hot-toast'
+import { useFilter } from 'hooks/useFilter'
 import { Typography } from 'antd'
 import { Box, WrappedBox } from 'components/Box'
-import { Loader } from 'components/Loader'
+import { WrappedLoader } from 'components/Loader'
 import { BackButton } from 'components/BackButton'
 import { AuthorCard } from 'components/AuthorCard'
 import { Author as AuthorType } from 'types/api'
+import { PostList } from 'components/Post'
 
 const { Title } = Typography
 
 export const Author = () => {
   const { id = '' } = useParams()
   const { useGetAuthorByIdQuery } = AuthorsQueries
+  const { useLazyGetPostsQuery } = PostsQueries
 
   const {
     data: author = {} as AuthorType,
@@ -21,16 +24,27 @@ export const Author = () => {
     isError: isAuthorError,
   } = useGetAuthorByIdQuery(id, { skip: !id })
 
+  const [getPosts, { data: posts = [], isLoading: isPostsLoading, isError: isPostsError }] =
+    useLazyGetPostsQuery()
+
+  const {
+    filters: { page: authorPage },
+    setPage,
+  } = useFilter(({ page }) => id && getPosts({ author: id, page }))
+
+  const loadMorePosts = () => {
+    setPage(authorPage + 1)
+  }
+
   useEffect(() => {
     if (isAuthorError) toast.error('The profile has not been loaded')
   }, [isAuthorError])
 
-  if (isAuthorLoading)
-    return (
-      <WrappedBox>
-        <Loader />
-      </WrappedBox>
-    )
+  useEffect(() => {
+    if (isPostsError) toast.error('The posts have not been loaded')
+  }, [isPostsError])
+
+  if (isAuthorLoading) return <WrappedLoader />
 
   return (
     <>
@@ -45,7 +59,14 @@ export const Author = () => {
         <Box alignItems='center'>
           <Box>
             <BackButton marginBottom={20} />
-            <AuthorCard {...author} />
+            <Box marginBottom={30}>
+              <AuthorCard {...author} />
+            </Box>
+            {posts.length === 0 && isPostsLoading ? (
+              <WrappedLoader />
+            ) : (
+              <PostList posts={posts} loadMore={loadMorePosts} />
+            )}
           </Box>
         </Box>
       )}

@@ -51,7 +51,8 @@ export function useFilter(
   useEffect(() => {
     if (filters.search) getSearchDebQuery(filters)
     else getDebQuery(filters)
-  }, [filters, getSearchDebQuery, getDebQuery])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters])
 
   useEffect(() => {
     if (page !== DEFAULT_FILTERS.defaultPage) setPage(DEFAULT_FILTERS.defaultPage)

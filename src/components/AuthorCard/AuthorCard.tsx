@@ -7,7 +7,7 @@ const { Title, Text } = Typography
 
 export const AuthorCard: FC<Omit<Author, 'id'>> = ({ name, age, avatar, bio }) => (
   <Card
-    style={{ maxWidth: 600, width: '100%' }}
+    style={{ maxWidth: 600, width: '100%', minHeight: 485, height: '100%' }}
     cover={<img alt='background' src='/images/background.jpg' />}
   >
     <Meta

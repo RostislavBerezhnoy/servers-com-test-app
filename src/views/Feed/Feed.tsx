@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { PostsQueries, AuthorsQueries } from 'api'
 import { toast } from 'react-hot-toast'
 import { useFilter } from 'hooks/useFilter'
-import { WrappedBox, Box } from 'components/Box'
-import { Loader } from 'components/Loader'
+import { Box } from 'components/Box'
+import { WrappedLoader } from 'components/Loader'
 import { PostList, PostFilter } from 'components/Post'
 import { CreatePost } from 'widgets/CreatePost'
 
@@ -32,12 +32,7 @@ export const Feed = () => {
     if (isPostsError) toast.error('The posts have not been loaded')
   }, [isPostsError])
 
-  if (isPostsLoading)
-    return (
-      <WrappedBox>
-        <Loader />
-      </WrappedBox>
-    )
+  if (isPostsLoading) return <WrappedLoader />
 
   return (
     <Box alignItems='center'>
