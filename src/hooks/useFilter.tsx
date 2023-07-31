@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { useAppSelector, useAppDispatch } from 'store'
-import { clearFilter } from 'store/slices'
+import { resetFilters as resetGlobalFilters } from 'store/slices'
 import debounce from 'lodash.debounce'
 
 type Query = {
@@ -25,7 +25,7 @@ export function useFilter(
     defaultPage = DEFAULT_FILTERS.defaultPage,
   } = DEFAULT_FILTERS,
 ) {
-  const { clear: clearFilters } = useAppSelector(store => store?.filter)
+  const { clear: isNeedResetFilters } = useAppSelector(store => store?.filter)
   const dispatch = useAppDispatch()
 
   const [page, setPage] = useState<Query['page']>(defaultPage)
@@ -35,7 +35,7 @@ export function useFilter(
   const [author, setAuthor] = useState<Query['author']>()
 
   const getSearchDebQuery = useMemo(() => debounce(fils => getQuery(fils), 500), [getQuery])
-  const getDebQuery = useMemo(() => debounce(fils => getQuery(fils), 100), [getQuery])
+  const getMemoizedQuery = useCallback((fils: Filters) => getQuery(fils), [getQuery])
 
   const filters = useMemo(
     () => ({
@@ -50,8 +50,8 @@ export function useFilter(
 
   useEffect(() => {
     if (filters.search) getSearchDebQuery(filters)
-    else getDebQuery(filters)
-  }, [filters, getSearchDebQuery, getDebQuery])
+    else getMemoizedQuery(filters)
+  }, [filters, getSearchDebQuery, getMemoizedQuery])
 
   useEffect(() => {
     if (page !== DEFAULT_FILTERS.defaultPage) setPage(DEFAULT_FILTERS.defaultPage)
@@ -67,11 +67,11 @@ export function useFilter(
   }, [])
 
   useEffect(() => {
-    if (clearFilters) {
+    if (isNeedResetFilters) {
       resetFilters()
-      dispatch(clearFilter(false))
+      dispatch(resetGlobalFilters(false))
     }
-  }, [clearFilters, resetFilters, dispatch])
+  }, [isNeedResetFilters, resetFilters, dispatch])
 
   return {
     filters,

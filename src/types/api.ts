@@ -1,3 +1,5 @@
+import { AuthorUtilityType } from './utilities'
+
 export type Author = {
   id: number
   name: string
@@ -6,13 +8,10 @@ export type Author = {
   bio: string
 }
 
-export type Post = {
+export type Post = AuthorUtilityType<Pick<Author, 'id' | 'name' | 'avatar'>> & {
   id: number
   text: string
   date: string
-  authorId: number
-  authorName: string
-  authorAvatar: string
 }
 
 export type CreatePost = Omit<Post, 'id'>

@@ -9,11 +9,11 @@ export const filtersSlice = createSlice({
   name: 'filters',
   initialState,
   reducers: {
-    clearFilter(state, action: PayloadAction<boolean>) {
+    resetFilters(state, action: PayloadAction<boolean>) {
       state.clear = action.payload
     },
   },
 })
 
-export const { clearFilter } = filtersSlice.actions
+export const { resetFilters } = filtersSlice.actions
 export default filtersSlice.reducer

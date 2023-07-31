@@ -1,7 +1,6 @@
 import { FC, useState, useEffect, ChangeEvent } from 'react'
 import { PostsQueries } from 'api'
-import { useAppSelector, useAppDispatch } from 'store'
-import { clearFilter } from 'store/slices'
+import { useAppSelector } from 'store'
 import { toast } from 'react-hot-toast'
 import { Modal, Button, Input } from 'antd'
 import { Box } from 'components/Box'
@@ -20,7 +19,6 @@ export const CreatePostModal: FC<CreatePostModalProps> = ({ isOpen, closeModal }
     name: authorName,
     avatar: authorAvatar,
   } = useAppSelector(store => store?.user)
-  const dispatch = useAppDispatch()
   const [text, setText] = useState<string>('')
 
   const { useCreatePostMutation } = PostsQueries
@@ -36,10 +34,9 @@ export const CreatePostModal: FC<CreatePostModalProps> = ({ isOpen, closeModal }
   useEffect(() => {
     if (isisCreatePostSuccess) {
       toast.success('New post has been successfully created')
-      dispatch(clearFilter(true))
       closeModal()
     }
-  }, [isisCreatePostSuccess, closeModal, dispatch])
+  }, [isisCreatePostSuccess, closeModal])
 
   useEffect(() => {
     if (isCreatePostError) toast.error('New post has not been created')
