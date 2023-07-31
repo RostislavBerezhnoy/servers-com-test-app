@@ -49,7 +49,7 @@ export const CreatePostModal: FC<CreatePostModalProps> = ({ isOpen, closeModal }
 
   return createPortal(
     <Modal
-      title='Create new post'
+      title='Create a new post'
       open={isOpen}
       onCancel={closeModal}
       footer={[
