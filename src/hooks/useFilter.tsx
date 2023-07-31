@@ -35,7 +35,7 @@ export function useFilter(
   const [author, setAuthor] = useState<Query['author']>()
 
   const getSearchDebQuery = useMemo(() => debounce(fils => getQuery(fils), 500), [getQuery])
-  const getMemoizedQuery = useCallback((fils: Filters) => getQuery(fils), [getQuery])
+  const getDebQuery = useMemo(() => debounce(fils => getQuery(fils), 100), [getQuery])
 
   const filters = useMemo(
     () => ({
@@ -50,8 +50,8 @@ export function useFilter(
 
   useEffect(() => {
     if (filters.search) getSearchDebQuery(filters)
-    else getMemoizedQuery(filters)
-  }, [filters, getSearchDebQuery, getMemoizedQuery])
+    else getDebQuery(filters)
+  }, [filters, getSearchDebQuery, getDebQuery])
 
   useEffect(() => {
     if (page !== DEFAULT_FILTERS.defaultPage) setPage(DEFAULT_FILTERS.defaultPage)

@@ -7,11 +7,16 @@ export const AUTHORS_TYPE = 'AUTHORS_TYPE'
 export const AuthorsQueries = createApi({
   reducerPath: AUTHORS_TYPE,
   baseQuery: preparedBaseQueryFn(),
-  tagTypes: [],
   endpoints: build => ({
     getAuthors: build.query<Author[], void>({
       query: () => ({
-        url: `/authors`,
+        url: '/authors',
+        method: 'GET',
+      }),
+    }),
+    getAuthorById: build.query<Author, number | string>({
+      query: id => ({
+        url: `/authors/${id}`,
         method: 'GET',
       }),
     }),

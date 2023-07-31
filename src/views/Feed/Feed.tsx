@@ -29,7 +29,7 @@ export const Feed = () => {
   }
 
   useEffect(() => {
-    if (isPostsError) toast.error('Posts has not been loaded')
+    if (isPostsError) toast.error('The posts have not been loaded')
   }, [isPostsError])
 
   if (isPostsLoading)

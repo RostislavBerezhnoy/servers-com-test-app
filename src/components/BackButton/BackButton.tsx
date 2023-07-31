@@ -7,7 +7,7 @@ export type BackButtonProps = CSSProperties & {
   text?: string
 }
 
-export const BackButton: FC<BackButtonProps> = ({ text = 'Назад', ...rest }) => {
+export const BackButton: FC<BackButtonProps> = ({ text = 'Back', ...rest }) => {
   const navigate = useNavigate()
 
   return (

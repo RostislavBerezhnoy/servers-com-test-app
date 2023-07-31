@@ -33,13 +33,13 @@ export const CreatePostModal: FC<CreatePostModalProps> = ({ isOpen, closeModal }
 
   useEffect(() => {
     if (isisCreatePostSuccess) {
-      toast.success('New post has been successfully created')
+      toast.success('A new post has been successfully created')
       closeModal()
     }
   }, [isisCreatePostSuccess, closeModal])
 
   useEffect(() => {
-    if (isCreatePostError) toast.error('New post has not been created')
+    if (isCreatePostError) toast.error('A new post has not been created')
   }, [isCreatePostError])
 
   const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
