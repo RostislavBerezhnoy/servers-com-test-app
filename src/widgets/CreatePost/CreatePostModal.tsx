@@ -1,4 +1,5 @@
 import { FC, useState, useEffect, ChangeEvent } from 'react'
+import { createPortal } from 'react-dom'
 import { PostsQueries } from 'api'
 import { useAppSelector } from 'store'
 import { toast } from 'react-hot-toast'
@@ -46,7 +47,7 @@ export const CreatePostModal: FC<CreatePostModalProps> = ({ isOpen, closeModal }
     setText(e.target.value)
   }
 
-  return (
+  return createPortal(
     <Modal
       title='Create new post'
       open={isOpen}
@@ -80,6 +81,7 @@ export const CreatePostModal: FC<CreatePostModalProps> = ({ isOpen, closeModal }
           onChange={onChange}
         />
       </Box>
-    </Modal>
+    </Modal>,
+    document.body,
   )
 }
