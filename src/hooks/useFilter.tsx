@@ -35,7 +35,7 @@ export function useFilter(
   const [author, setAuthor] = useState<Query['author']>()
 
   const getSearchDebQuery = useMemo(() => debounce(fils => getQuery(fils), 500), [getQuery])
-  const getDebQuery = useMemo(() => debounce(fils => getQuery(fils), 200), [getQuery])
+  const getDebQuery = useMemo(() => debounce(fils => getQuery(fils), 100), [getQuery])
 
   const filters = useMemo(
     () => ({

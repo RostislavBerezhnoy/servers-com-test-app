@@ -62,7 +62,7 @@ export const Author = () => {
             <Box marginBottom={30}>
               <AuthorCard {...author} />
             </Box>
-            {posts.length === 0 && isPostsLoading ? (
+            {isPostsLoading ? (
               <WrappedLoader />
             ) : (
               <PostList posts={posts} loadMore={loadMorePosts} />
