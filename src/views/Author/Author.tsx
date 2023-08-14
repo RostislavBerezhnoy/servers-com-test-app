@@ -30,7 +30,12 @@ export const Author = () => {
   const {
     filters: { page: authorPage },
     setPage,
-  } = useFilter(({ page }) => id && getPosts({ author: id, page }))
+    setAuthor,
+  } = useFilter(getPosts)
+
+  useEffect(() => {
+    if (id) setAuthor(id)
+  }, [id, setAuthor])
 
   const loadMorePosts = () => {
     setPage(authorPage + 1)

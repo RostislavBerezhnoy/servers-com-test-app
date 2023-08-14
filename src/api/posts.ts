@@ -59,24 +59,28 @@ export const PostsQueries = createApi({
         body,
       }),
       async onQueryStarted(_, { dispatch, getState, queryFulfilled }) {
-        await queryFulfilled
+        try {
+          await queryFulfilled
 
-        const {
-          page = DEFAULT_FILTERS.defaultPage,
-          rowsPerPage = DEFAULT_FILTERS.defaultPerPage,
-          ...rest
-        } = getState().POSTS_TYPE.queries?.getPosts?.originalArgs as Filters
+          const {
+            page = DEFAULT_FILTERS.defaultPage,
+            rowsPerPage = DEFAULT_FILTERS.defaultPerPage,
+            ...rest
+          } = getState()[POSTS_TYPE].queries?.getPosts?.originalArgs as Filters
 
-        const argsArray = getArgsArrayFromArgsObject(rest)
+          const argsArray = getArgsArrayFromArgsObject(rest)
 
-        if (
-          argsArray.some(Boolean) ||
-          page > DEFAULT_FILTERS.defaultPage ||
-          rowsPerPage > DEFAULT_FILTERS.defaultPerPage
-        ) {
-          dispatch(resetFilters(true))
-        } else {
-          dispatch(PostsQueries.util.invalidateTags([POSTS_TYPE_GET_ALL_POSTS]))
+          if (
+            argsArray.some(Boolean) ||
+            page > DEFAULT_FILTERS.defaultPage ||
+            rowsPerPage > DEFAULT_FILTERS.defaultPerPage
+          ) {
+            dispatch(resetFilters(true))
+          } else {
+            dispatch(PostsQueries.util.invalidateTags([POSTS_TYPE_GET_ALL_POSTS]))
+          }
+        } catch (error) {
+          console.error(error)
         }
       },
     }),

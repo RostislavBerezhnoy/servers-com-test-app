@@ -6,6 +6,7 @@ import { toast } from 'react-hot-toast'
 import { Modal, Button, Input } from 'antd'
 import { Box } from 'components/Box'
 import dayjs from 'dayjs'
+import { styles } from './styles'
 
 const { TextArea } = Input
 
@@ -57,8 +58,13 @@ export const CreatePostModal: FC<CreatePostModalProps> = ({ isOpen, closeModal }
           key='submit'
           type='primary'
           onClick={() =>
-            text &&
-            createPost({ text, date: dayjs().toISOString(), authorId, authorName, authorAvatar })
+            createPost({
+              text,
+              date: dayjs().toISOString(),
+              authorId,
+              authorName,
+              authorAvatar,
+            })
           }
           loading={isCreatePostLoading}
           disabled={isCreatePostLoading || !text}
@@ -76,7 +82,7 @@ export const CreatePostModal: FC<CreatePostModalProps> = ({ isOpen, closeModal }
           placeholder='Enter your message...'
           maxLength={200}
           showCount
-          style={{ resize: 'none' }}
+          style={styles.textArea as any}
           value={text}
           onChange={onChange}
         />

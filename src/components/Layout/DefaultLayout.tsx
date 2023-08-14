@@ -2,15 +2,16 @@ import { FC } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Layout } from 'antd'
 import { DefaultHeader } from './Header'
+import { styles } from './styles'
 
 const { Header, Content } = Layout
 
 export const DefaultLayout: FC = () => (
-  <Layout style={{ height: '100%', minHeight: '100vh' }}>
-    <Header style={{ display: 'flex', justifyContent: 'end' }}>
+  <Layout style={styles.layoyt}>
+    <Header style={styles.header}>
       <DefaultHeader />
     </Header>
-    <Content style={{ padding: '20px' }}>
+    <Content style={styles.content}>
       <Outlet />
     </Content>
   </Layout>

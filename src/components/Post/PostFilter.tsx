@@ -3,6 +3,7 @@ import { Select, Input, DatePicker, Button } from 'antd'
 import { Box, BorderedBox } from 'components/Box'
 import dayjs from 'dayjs'
 import { Author } from 'types/api'
+import { styles } from './styles'
 
 export type PostFilterProps = {
   search: string
@@ -40,7 +41,7 @@ export const PostFilter: FC<PostFilterProps> = ({
     <Box flexDirection='row' justifyContent='space-between' width='100%' marginBottom={20}>
       <Select
         allowClear
-        style={{ width: '49%' }}
+        style={styles.doubleBlocks}
         loading={authorsLoading}
         options={authors}
         fieldNames={{ label: 'name', value: 'id' }}
@@ -49,7 +50,7 @@ export const PostFilter: FC<PostFilterProps> = ({
         placeholder='select contributor...'
       />
       <DatePicker
-        style={{ width: '49%' }}
+        style={styles.doubleBlocks}
         value={date ? dayjs(date) : undefined}
         onChange={(_, dateString) => setDate(dateString)}
         placeholder='select date...'

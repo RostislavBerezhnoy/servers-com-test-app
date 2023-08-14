@@ -4,13 +4,14 @@ import { Avatar, List, Typography } from 'antd'
 import { Box } from 'components/Box'
 import { dateTimeFormatter } from 'utils/dateFormatter'
 import { Post } from 'types/api'
+import { styles } from './styles'
 
 const { Title, Text } = Typography
 
 export const PostItem: FC<Post> = ({ id, text, date, authorId, authorAvatar, authorName }) => (
   <List.Item key={id}>
     <List.Item.Meta
-      style={{ overflow: 'hidden' }}
+      style={styles.listItemMeta}
       avatar={
         <Link to={`/author/${authorId}`}>
           <Avatar size={45} src={authorAvatar} />

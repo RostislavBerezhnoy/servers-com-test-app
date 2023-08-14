@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { useAppSelector } from 'store'
 import { Avatar, Typography } from 'antd'
 import { Box } from 'components/Box'
+import { styles } from './styles'
 
 const { Title } = Typography
 
@@ -10,7 +11,7 @@ export const DefaultHeader: FC = () => {
 
   return (
     <Box flexDirection='row' alignItems='center'>
-      <Title level={5} style={{ color: 'white', margin: 0, paddingRight: 15 }}>
+      <Title level={5} style={styles.headerTitle}>
         {name}
       </Title>
       <Avatar size={48} src={avatar} />

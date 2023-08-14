@@ -1,7 +1,8 @@
 import { FC, CSSProperties } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { Button } from 'antd'
 import { Box } from 'components/Box'
+import { styles } from './styles'
 
 export type BackButtonProps = CSSProperties & {
   text?: string
@@ -9,10 +10,14 @@ export type BackButtonProps = CSSProperties & {
 
 export const BackButton: FC<BackButtonProps> = ({ text = 'Back', ...rest }) => {
   const navigate = useNavigate()
+  const { key = 'default' } = useLocation()
 
   return (
     <Box {...rest}>
-      <Button style={{ width: 100 }} onClick={() => navigate(-1)}>
+      <Button
+        style={styles.button}
+        onClick={() => (key && key !== 'default' ? navigate(-1) : navigate('/'))}
+      >
         {text}
       </Button>
     </Box>
