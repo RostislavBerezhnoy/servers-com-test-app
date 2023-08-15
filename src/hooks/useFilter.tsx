@@ -49,7 +49,7 @@ export function useFilter(
   )
 
   useEffect(() => {
-    if (filters.search.length > 1) getDebouncedSearchQuery(filters)
+    if (filters.search.trim().length > 1) getDebouncedSearchQuery(filters)
     else getDebouncedQuery(filters)
   }, [filters, getDebouncedQuery, getDebouncedSearchQuery])
 
