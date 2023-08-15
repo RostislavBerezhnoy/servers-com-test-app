@@ -16,7 +16,7 @@ export const BackButton: FC<BackButtonProps> = ({ text = 'Back', ...rest }) => {
     <Box {...rest}>
       <Button
         style={styles.button}
-        onClick={() => (key && key !== 'default' ? navigate(-1) : navigate('/'))}
+        onClick={() => (key !== 'default' ? navigate(-1) : navigate('/'))}
       >
         {text}
       </Button>
