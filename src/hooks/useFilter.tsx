@@ -34,7 +34,6 @@ export function useFilter(
   const [date, setDate] = useState<Query['date']>()
   const [author, setAuthor] = useState<Query['author']>()
 
-  const getDebouncedSearchQuery = useMemo(() => debounce(fils => getQuery(fils), 500), [getQuery])
   const getDebouncedQuery = useMemo(() => debounce(fils => getQuery(fils), 100), [getQuery])
 
   const filters = useMemo(
@@ -49,14 +48,13 @@ export function useFilter(
   )
 
   useEffect(() => {
-    if (filters.search.trim().length > 1) getDebouncedSearchQuery(filters)
-    else getDebouncedQuery(filters)
-  }, [filters, getDebouncedQuery, getDebouncedSearchQuery])
+    getDebouncedQuery(filters)
+  }, [filters, getDebouncedQuery])
 
   useEffect(() => {
     if (page !== DEFAULT_FILTERS.defaultPage) setPage(DEFAULT_FILTERS.defaultPage)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [rowsPerPage, search, author, date])
+  }, [setPage, rowsPerPage, search, author, date])
 
   const resetFilters = useCallback(() => {
     setPage(DEFAULT_FILTERS.defaultPage)
