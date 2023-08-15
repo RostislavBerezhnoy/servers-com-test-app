@@ -34,6 +34,7 @@ export function useFilter(
   const [date, setDate] = useState<Query['date']>()
   const [author, setAuthor] = useState<Query['author']>()
 
+  const getDebouncedSearchQuery = useMemo(() => debounce(fils => getQuery(fils), 500), [getQuery])
   const getDebouncedQuery = useMemo(() => debounce(fils => getQuery(fils), 100), [getQuery])
 
   const filters = useMemo(
@@ -48,8 +49,9 @@ export function useFilter(
   )
 
   useEffect(() => {
-    getDebouncedQuery(filters)
-  }, [filters, getDebouncedQuery])
+    if (filters.search.length > 1) getDebouncedSearchQuery(filters)
+    else getDebouncedQuery(filters)
+  }, [filters, getDebouncedQuery, getDebouncedSearchQuery])
 
   useEffect(() => {
     if (page !== DEFAULT_FILTERS.defaultPage) setPage(DEFAULT_FILTERS.defaultPage)

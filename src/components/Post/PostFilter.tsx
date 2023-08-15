@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { Select, Input, DatePicker, Button } from 'antd'
 import { Box, BorderedBox } from 'components/Box'
 import dayjs from 'dayjs'
+import { FIELDS_NAME } from './helpers'
 import { Author } from 'types/api'
 import { styles } from './styles'
 
@@ -44,7 +45,7 @@ export const PostFilter: FC<PostFilterProps> = ({
         style={styles.doubleBlocks}
         loading={authorsLoading}
         options={authors}
-        fieldNames={{ label: 'name', value: 'id' }}
+        fieldNames={FIELDS_NAME}
         value={author}
         onChange={setAuthor}
         placeholder='select contributor...'
